@@ -59,7 +59,8 @@ Runs result:         PASS
 Longest ones result: PASS
 Serial 1 result:     PASS
 Serial 2 result:     PASS
-
+```
+```
 --- Final Results (Out of 30 streams) ---
 Monobit passed: 30 / 30
 Block passed: 30 / 30
@@ -69,5 +70,6 @@ Serial 1 passed: 30 / 30
 Serial 2 passed: 29 / 30
 --------------------------------------------------------
 ```
-
+``
 Decryption yielded same result as message?: true
+```
