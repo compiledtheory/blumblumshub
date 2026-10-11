@@ -10,23 +10,11 @@ use rand::Rng;
 fn main() {
     let numbers = bbs::generate_biguint_struct();
     let bbs = bbs::generate(&numbers);
-    let mut rng = rand::thread_rng();
+    let rng = rand::thread_rng();
     let n = bbs.n();
 
     let streams = 30;
-    let mut accumulation = TestAccumulation::new();
-
-    for i in 0..streams {
-        let bits = rng.gen_range(100_000..=110_000);
-        let s = bbs::generate_s(&n, &numbers);
-        let cypher_data = CypherData{bits, n: n.clone(), s};
-        let bbs_bits = bbs::make_bbs_bits(cypher_data, &numbers);
-        let result = nist::run_tests(&bbs_bits, 0.01);
-        accumulation.update(&result);
-        println!("Iteration {i} results on {bits} bits: ");
-        println!("{result}");
-        
-    }
+    let accumulation = test_multiple_streams(&numbers, rng, &n, streams);
 
     accumulation.results(streams);
 
@@ -39,7 +27,7 @@ fn main() {
     let cypher_data = CypherData{bits, n, s};
 
     let bbs_bits = bbs::make_bbs_bits(cypher_data, &numbers);
-    let test_results = nist::run_tests(&bbs_bits, 0.01);
+    let test_results = nist::run_test(&bbs_bits, 0.01);
     println!("{test_results}");
     let keystream_bytes = cypher::make_keystream_bytes(bbs_bits);
     
@@ -48,3 +36,20 @@ fn main() {
 
     println!("Decryption yielded same result as message?: {}", secret_bytes == decrypted);
 }
+
+fn test_multiple_streams(numbers: &structs::Numbers, mut rng: rand::prelude::ThreadRng, n: &num_primes::BigUint, streams: u32) -> TestAccumulation {
+    let mut accumulation = TestAccumulation::new();
+    
+    for i in 0..streams {
+        let bits = rng.gen_range(100_000..=110_000);
+        let s = bbs::generate_s(n, numbers);
+        let cypher_data = CypherData{bits, n: n.clone(), s};
+        let bbs_bits = bbs::make_bbs_bits(cypher_data, numbers);
+        let result = nist::run_test(&bbs_bits, 0.01);
+        accumulation.update(&result);
+        println!("Iteration {i} results on {bits} bits: ");
+        println!("{result}");
+    
+    }
+    return accumulation;
+    }

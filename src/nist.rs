@@ -4,7 +4,9 @@ use statrs::function::gamma::gamma_ur;
 use crate::structs;
 
 
-pub fn run_tests(bits: &[u8], alfa: f32) -> structs::TestResults {
+
+
+pub fn run_test(bits: &[u8], alfa: f32) -> structs::TestResults {
     let monobit = frequency_monobit_test(bits);
     let block = frequency_test_within_a_block(bits);
     let runs = runs_test(bits);
