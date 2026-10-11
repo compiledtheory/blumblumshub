@@ -3,12 +3,12 @@ mod cypher;
 mod bbs;
 mod nist;
 
-use structs::{CypherData, Secret, TestAccumulation};
+use structs::{CypherData, Secret, TestAccumulation, Numbers};
 use rand::Rng;
 
 
 fn main() {
-    let numbers = bbs::generate_biguint_struct();
+    let numbers = Numbers::new();
     let bbs = bbs::generate(&numbers);
     let rng = rand::thread_rng();
     let n = bbs.n();

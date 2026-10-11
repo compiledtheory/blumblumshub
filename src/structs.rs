@@ -12,11 +12,23 @@ impl BlumBlumShub {
     }
 }
 pub struct Numbers {
-    pub zero: BigUint,
-    pub one: BigUint,
-    pub two: BigUint,
+    pub zero:  BigUint,
+    pub one:   BigUint,
+    pub two:   BigUint,
     pub three: BigUint,
-    pub four: BigUint,
+    pub four:  BigUint,
+}
+
+impl Numbers {
+    pub fn new() -> Self {
+        return Self {
+            zero:  BigUint::from(0u32),
+            one:   BigUint::from(1u32),
+            two:   BigUint::from(2u32),
+            three: BigUint::from(3u32),
+            four:  BigUint::from(4u32),
+        }
+    }
 }
 
 pub struct Secret {
@@ -39,17 +51,17 @@ impl Secret {
 
 pub struct CypherData {
     pub bits: usize,
-    pub n: BigUint,
-    pub s: BigUint,
+    pub n:    BigUint,
+    pub s:    BigUint,
 }
 
 pub struct TestResults {
-    pub monobit: bool,
-    pub block: bool, 
-    pub runs: bool,
+    pub monobit:      bool,
+    pub block:        bool, 
+    pub runs:         bool,
     pub longest_ones: bool,
-    pub serial_1: bool,
-    pub serial_2: bool,
+    pub serial_1:     bool,
+    pub serial_2:     bool,
 }
 
 impl fmt::Display for TestResults {
@@ -66,23 +78,23 @@ impl fmt::Display for TestResults {
 }
 
 pub struct TestAccumulation {
-    pub monobit: u32,
-    pub block: u32,
-    pub runs: u32,
+    pub monobit:      u32,
+    pub block:        u32,
+    pub runs:         u32,
     pub longest_ones: u32,
-    pub serial_1: u32,
-    pub serial_2: u32,
+    pub serial_1:     u32,
+    pub serial_2:     u32,
 }
 
 impl TestAccumulation {
     pub fn new() -> Self {
         return Self {
-            monobit: 0,
-            block: 0,
-            runs: 0,
+            monobit:      0,
+            block:        0,
+            runs:         0,
             longest_ones: 0,
-            serial_1: 0,
-            serial_2: 0,
+            serial_1:     0,
+            serial_2:     0,
         }
     }
 

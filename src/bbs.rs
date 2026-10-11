@@ -43,16 +43,6 @@ pub fn make_bbs_bits(cypher_data: structs::CypherData, numbers: &structs::Number
     return bbs_bits;
 }
 
-pub fn generate_biguint_struct() -> structs::Numbers {
-    return structs::Numbers{
-        zero: BigUint::from(0u32),
-        one: BigUint::from(1u32),
-        two: BigUint::from(2u32),
-        three: BigUint::from(3u32),
-        four: BigUint::from(4u32),
-    };
-}
-
 pub fn generate_s(n: &BigUint, numbers: &structs::Numbers) -> BigUint {
     let bit_size = n.bits();
     let candidate = loop {
