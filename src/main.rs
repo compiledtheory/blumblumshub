@@ -89,6 +89,9 @@ fn test_multiple_streams(numbers: &structs::Numbers, mut rng: rand::prelude::Thr
             result.serial_1 as u8, 
             result.serial_2 as u8
         ).expect("Failed to write to CSV");
+
+        println!("Iteration {i} results on {bits} bits:");
+        println!("{result}");
     }
     return accumulation;
 }

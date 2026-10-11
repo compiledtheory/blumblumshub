@@ -2,3 +2,4 @@
 venv
 analysis/output/
 data/
+__pycache__/
