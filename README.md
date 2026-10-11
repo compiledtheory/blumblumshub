@@ -41,6 +41,7 @@ Ensure you have [Rust and Cargo](https://www.rust-lang.org/tools/install) instal
 
 ## Sample Output
 
+```
 Iteration 0 results on 106661 bits: 
 Monobit result:      PASS
 Block result:        PASS
@@ -67,5 +68,6 @@ Longest ones passed: 30 / 30
 Serial 1 passed: 30 / 30
 Serial 2 passed: 29 / 30
 --------------------------------------------------------
+```
 
 Decryption yielded same result as message?: true
