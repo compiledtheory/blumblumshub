@@ -70,6 +70,6 @@ Serial 1 passed: 30 / 30
 Serial 2 passed: 29 / 30
 --------------------------------------------------------
 ```
-``
+```
 Decryption yielded same result as message?: true
 ```
