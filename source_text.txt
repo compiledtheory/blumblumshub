@@ -1,0 +1,3 @@
+Niniejszy dokument stanowi tajna wiadomosc testowa wygenerowana na potrzeby sprawozdania z kryptografii. 
+Celem procedury jest poprawne zaszyfrowanie oraz odszyfrowanie tego tekstu przy pomocy szyfru Vernama, 
+oraz strumienia bitow z generatora Blum Blum Shub. Pelnosc danych musi zostac zachowana.
